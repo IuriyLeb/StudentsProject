@@ -1,7 +1,6 @@
 # coding: utf8
 """Selection of a random student for answer"""
 import random
-import RandomStudent
 
 L=100
 weight_changed={}
@@ -16,13 +15,9 @@ def call_random_student_on_weight(student_dict,flag=1):
 				2) dictionary of weights like {1:[0,10],[10:20],...}
 	output: return name of student in console
 	"""
-	if flag==1:
-		actual_student_dict = {}
-		global actual_student_dict
-		student_dict=RandomStudent.check_student_list(student_dict)
 	weight={i+1:[L*i,L*(i+1)] for i in range(0,len(student_dict))}
 
-	user_input=raw_input("Press enter for working or q for exit..."+"\n")
+	user_input=input("Press enter for working or q for exit..."+"\n")
 	while user_input!="q":
 		flag=0
 		random_number=random.randint(2,weight[len(student_dict)][1])
@@ -37,7 +32,7 @@ def call_random_student_on_weight(student_dict,flag=1):
 				weight[key][0]=weight[key-1][1]
 				weight[key][1]=weight[key][0]+weight_changed.get(key,L)
 
-		user_input=raw_input("Press q for exit..."+"\n" +"No if student isn't here" +"\n")
+		user_input=input("Press q for exit..."+"\n" +"No if student isn't here" +"\n")
 		if user_input=="No":
 			del student_dict[key]
 			del weight[key]
@@ -49,4 +44,6 @@ def call_random_student_on_weight(student_dict,flag=1):
 		call_random_student_on_weight(actual_student_dict,flag)
 
 if __name__ == '__main__':
+	list_of_student=[line.strip().split("\t",1)[1] for line in open("../data_input/list_of_students.txt").readlines()]
+	student_dict={ind:student for ind,student in enumerate(list_of_student,1)}
 	call_random_student_on_weight(student_dict)
