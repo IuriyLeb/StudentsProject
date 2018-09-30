@@ -11,7 +11,7 @@ def random_st_delete(list_of_student):
     for j in range(1,len(st_absent)+1):
       list_of_student .remove(lit_of_student[j])
   while len(list_of_student ) > 0:
-    print('Выбрать случайного студента? y/n' )
+    print('Choose a random student? y/n' )
     if input() == 'y':
       q=random.choice(list_of_student)
       print q
