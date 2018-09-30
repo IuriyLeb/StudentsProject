@@ -22,7 +22,7 @@ def call_random_student_on_weight(student_dict,flag=1):
 		student_dict=RandomStudent.check_student_list(student_dict)
 	weight={i+1:[L*i,L*(i+1)] for i in range(0,len(student_dict))}
 
-	user_input=input("Press enter for working or q for exit..."+"\n")
+	user_input=raw_input("Press enter for working or q for exit..."+"\n")
 	while user_input!="q":
 		flag=0
 		random_number=random.randint(2,weight[len(student_dict)][1])
