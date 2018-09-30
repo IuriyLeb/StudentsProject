@@ -18,7 +18,7 @@ def call_random_student_on_weight(students_dict,weight):
 				2) dictionary of weights like {1:[0,10],[10:20],...}
 	output: return name of student in console
 	"""
-	user_input=raw_input("Press q for exit..."+"\n")
+	user_input=input("Press q for exit..."+"\n")
 	while user_input!="q":
 		random_number=random.randint(2,weight[len(students_dict)][1])
 		flag=0
