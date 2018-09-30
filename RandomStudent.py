@@ -28,39 +28,38 @@ def remove_student():
                 print('Please continue choosing')
         break
 
+def check_student_list(student_dict):
+    print('Ready to start checking? Y/n')
+    while True:
+        choice1 = input()
+        if choice1 == 'n':
+            break
+        elif choice1 == 'Y':
+            for elem in student_dict:
+                print(elem, student_dict[elem])
+            print('Who is here today?(Type a number)')
+            numadd = input().split()
+            for elem in numadd:
+                elem = int(elem)
+                if elem in student_dict:
+                    actual_student_dict[elem] = student_dict[elem]
+                else:
+                    print('Incorrect number')
+            print(actual_student_dict)
+            break
+        else:
+            print('Incorrect')
+            continue
 
+
+list_of_student=open("./data_input/list_of_students.txt").readlines()
+student_dict={int(line.strip().split()[0]):line.strip().split("\t",1)[1] for line in list_of_student}
 student_list = []
-student_dict = {1: 'a', 2: 'b', 3: 'c',
-                4: 'd', 5: 'e', 6: 'f',
-                7: 'g', 8: 'h', 9: 'i',
-                10: 'j', 11: 'k', 12: 'l',
-                13: 'm', 14: 'n', 15: 'o',
-                16: 'p', 17: 'q', 18: 'r',
-                19: 's', 20: 't', 21: 'u',
-                22: 'v', 23: 'w', }
 actual_student_dict = {}
 student_dict_reverted = {}
-print('Ready to start checking? Y/n')
-while True:
-    choice1 = input()
-    if choice1 == 'n':
-        break
-    elif choice1 == 'Y':
-        for elem in student_dict:
-            print(elem, student_dict[elem])
-        print('Who is here today?(Type a number)')
-        numadd = input().split()
-        for elem in numadd:
-            elem = int(elem)
-            if elem in student_dict:
-                actual_student_dict[elem] = student_dict[elem]
-            else:
-                print('Incorrect number')
-        print(actual_student_dict)
-        break
-    else:
-        print('Incorrect')
-        continue
+
+check_student_list(student_dict)
+
 revert_dict(actual_student_dict)
 print('Do you want to make your choise?', '\n', 'Press 1 to do it, 2 to exit')
 
