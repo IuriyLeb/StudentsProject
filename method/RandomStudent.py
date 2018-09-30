@@ -1,3 +1,4 @@
+import os
 import random
 
 
@@ -85,7 +86,7 @@ def RandomStudents(student_dict):
             print('Incorrect, try again')
 
 if __name__ == '__main__':
-    list_of_student=open("../data_input/list_of_students.txt").readlines()
+    list_of_student=open(os.path.join("../data_input/list_of_students.txt")).readlines()
     student_dict={int(line.strip().split()[0]):line.strip().split("\t",1)[1] for line in list_of_student}
 
 

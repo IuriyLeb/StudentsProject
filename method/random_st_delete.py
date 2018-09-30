@@ -1,4 +1,5 @@
-﻿import random
+﻿import os
+import random
 
 def random_st_delete(list_of_student):
   for i in range(len(list_of_student)):
@@ -18,7 +19,7 @@ def random_st_delete(list_of_student):
       list_of_student.remove(q)
 
 if __name__ == '__main__':
-  list_of_student=[line.strip().split("\t",1)[1] for line in open("../data_input/list_of_students.txt").readlines()]
+  list_of_student=[line.strip().split("\t",1)[1] for line in open(os.path.join("../data_input/list_of_students.txt")).readlines()]
   random_st_delete (list_of_student)
 
   

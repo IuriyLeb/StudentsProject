@@ -1,4 +1,5 @@
 import argparse
+import os
 import method 
 
 parser=argparse.ArgumentParser(description='Selection of random student for answer')
@@ -10,10 +11,8 @@ group.add_argument("-random_st_delete", action="store_true", help='search indel'
 
 args = parser.parse_args()
 
-list_of_student=[line.strip().split("\t",1)[1] for line in open("../data_input/list_of_students.txt").readlines()]
+list_of_student=[line.strip().split("\t",1)[1] for line in open(os.path.join("../data_input/list_of_students.txt")).readlines()]
 student_dict={ind:student for ind,student in enumerate(list_of_student,1)}
-
-
 
 if args.RandomStudent:
 	method.RandomStudent.RandomStudents(student_dict)
