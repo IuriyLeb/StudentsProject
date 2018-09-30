@@ -14,7 +14,7 @@ def random_st_delete(list_of_student):
     print('Choose a random student? y/n' )
     if input() == 'y':
       q=random.choice(list_of_student)
-      print q
+      print(q)
       list_of_student.remove(q)
 
 if __name__ == '__main__':
