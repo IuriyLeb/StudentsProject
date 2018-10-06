@@ -1,13 +1,22 @@
+# -*- coding: utf-8 -*-
+"""OracleStudent.py.
+This module presents methods of choosing random student
+in a group to make easily for teacher to ask students
+Methods:
+    methods_one
+Example:
+        $ python OracleStudent.py -m method_1
+"""
 import argparse
-#import method
 import os
+from methods import oracle_student
 
-parser=argparse.ArgumentParser(description='Selection of random student for answer')
+parser = argparse.ArgumentParser(description='Selection of random student for answer')
+parser.add_argument("-in", "--path_to_file_of_student", default=os.path.join(".", "data_input", "list_of_student.txt"),
+                    help='set path_to_file_of_student (default: data_input dir in dir with scripts)')
 group = parser.add_mutually_exclusive_group()
-group.add_argument( "--name_method", action="store_true", help='name of random student method')
-args = parser.parse_args()
+group.add_argument("-m", "--name_method", action="store", help='name of random student method')
 
-path_to_list_of_student = os.path.join("data_input","list_of_students.txt")
+args = parser.parse_args()
 if args.name_method:
-    print(1)
-    #method.name_method.name_function_from_method(path_to_list_of_student)
+    oracle_student.oracle(args.path_to_file_of_student, args.name_method)
