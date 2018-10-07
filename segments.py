@@ -5,7 +5,6 @@
 
 This module select random student in student group.
 """
-
 import os
 import random
 
@@ -39,7 +38,6 @@ def call_random_student_on_weight(student_list, __check_func_call_flag=1):
 			if __check_func_call_flag == 1:
 				weight[key][0] = weight[key-1][1]
 				weight[key][1] = weight[key][0] + weight_changed.get(key, initial_weight)
-
 		user_input = input("Press q for exit..."+"\n" +"No if student isn't here" +"\n")
 		if user_input == "No":
 			del student_dict[key]
@@ -50,3 +48,4 @@ def call_random_student_on_weight(student_list, __check_func_call_flag=1):
 			break
 	if __check_func_call_flag == 0:	
 			call_random_student_on_weight(actual_student_dict, __check_func_call_flag)
+
