@@ -1,12 +1,16 @@
 import random
 
 
-def random(list_of_students):
+def random_student(list_of_students):
     student_dict = {}
     for elem in list_of_students:
         student_dict[elem] = 0
-    print('Do you want to make your choice?', '\n', 'Press y to do it, n to exit')
+    # print('Do you want to make your choice?', '\n', 'Press y to do it, n to exit')
+    somestud = random.choice(list_of_students)
+    print(somestud)
+    student_dict[somestud] += 1
     while True:
+        print('Proceed? (y/n)', end=' ')
         choice = input()
         if choice == 'n':
             break
