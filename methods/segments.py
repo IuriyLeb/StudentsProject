@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 """Selection of a random student for answer.
@@ -24,6 +23,7 @@ def shift_segment(right_end, next_left_end, next_right_end):
 
 
 def call_random_student_on_weight(student_list, weight=[], _check_call_func_flag=1):
+    print(student_list)
     """
     Selection of random_student considering current weights
     Model of a comparison of the length of the segment of the probability to be answered

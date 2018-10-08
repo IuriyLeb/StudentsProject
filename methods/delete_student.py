@@ -1,3 +1,6 @@
+import random
+
+
 def random_st_delete(list_of_student):
     for i in range(len(list_of_student)):
         print(i+1, list_of_student[i])
