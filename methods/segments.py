@@ -14,7 +14,7 @@ def shift_segment(right_end, next_left_end, next_right_end):
 
      input data: int: 1) right_end, next_left_end, next_right_end - ends previous
                     and current segment
-     output: return new
+     output: return new borders
      """
     size = next_right_end - next_left_end
     left_end_new = right_end
@@ -23,7 +23,6 @@ def shift_segment(right_end, next_left_end, next_right_end):
 
 
 def call_random_student_on_weight(student_list, weight=[], _check_call_func_flag=1):
-    print(student_list)
     """
     Selection of random_student considering current weights
     Model of a comparison of the length of the segment of the probability to be answered
@@ -61,14 +60,3 @@ def call_random_student_on_weight(student_list, weight=[], _check_call_func_flag
             break
     if (_check_call_func_flag == 0) and (user_input != "q"):
         call_random_student_on_weight(student_list, weight, _check_call_func_flag)
-
-
-if __name__ == '__main__':
-    list_of_student = []
-    path_to_file_of_student = os.path.join(".", "data_input", "list_of_students.txt")
-    with open(path_to_file_of_student, "rb") as students_file:
-        for line in students_file:
-            student_name = line.decode("utf-8").strip().split(" ", 1)[1]
-            list_of_student.append(student_name)
-    student_dict = {ind: student for ind, student in enumerate(list_of_student, 1)}
-    call_random_student_on_weight(list_of_student)
