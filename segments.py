@@ -5,7 +5,6 @@
 
 This module select random student in student group.
 """
-
 import os
 import random
 
