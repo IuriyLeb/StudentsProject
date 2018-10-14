@@ -6,7 +6,6 @@ This module select random student in student group.
 """
 import os
 import random
-import sys
 
 
 def shift_one_segment(right_end, next_left_end, next_right_end):
@@ -27,24 +26,20 @@ def count_student_weight(user_input,list_of_student, weight=[]):
     flag = 0
     if not weight:
         weight = [[initial_weight * i, initial_weight * (i + 1)] for i in range(len(list_of_student))]
-    if user_input == "y":
-        random_number = random.randint(2, sorted(weight)[-1][-1])
-        for ind, segment in enumerate(weight):
-            if segment[0] <= random_number <= segment[-1]:
-                called_student = list_of_student[ind]
-                ind_called_student = ind
-                print(called_student, ind)
-                if delete_student_during_call(list_of_student, weight, ind_called_student):
-                    weight = count_student_weight(user_input, list_of_student, weight)
-                    break
-                restrict_size = (weight[ind][1] - weight[ind][0]) // 2
-                weight[ind][1] = weight[ind][1] - restrict_size
-                flag = 1
-            elif flag == 1:
-                weight =  shift_all_segment(ind_called_student, weight)
-        return(weight)
-    else:
-        sys.exit()
+    random_number = random.randint(2, sorted(weight)[-1][-1])
+    for ind, segment in enumerate(weight):
+        if segment[0] <= random_number <= segment[-1]:
+            called_student = list_of_student[ind]
+            ind_called_student = ind
+            print(called_student, ind)
+            if delete_student_during_call(list_of_student, weight, ind_called_student):
+                return(weight)
+            restrict_size = (weight[ind][1] - weight[ind][0]) // 2
+            weight[ind][1] = weight[ind][1] - restrict_size
+            flag = 1
+        elif flag == 1:
+            weight =  shift_all_segment(ind_called_student, weight)
+    return(weight)
 
 
 def delete_student_during_call(list_of_student, weight, ind_called_student):
