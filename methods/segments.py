@@ -41,7 +41,7 @@ def count_student_weight(user_input,list_of_student, weight=[]):
                 weight[ind][1] = weight[ind][1] - restrict_size
                 flag = 1
             elif flag == 1:
-                shift_all_segment(ind_called_student, weight)
+                weight =  shift_all_segment(ind_called_student, weight)
         return(weight)
     else:
         sys.exit()
@@ -56,11 +56,3 @@ def delete_student_during_call(list_of_student, weight, ind_called_student):
         return weight
     else:
         return False
-
-
-def call_random_student_on_weight(list_of_student,weight=[]):
-    while True:
-        print('Choose a random student? y/n/')
-        user_input = input()
-        weight = count_student_weight(user_input, list_of_student, weight)
-

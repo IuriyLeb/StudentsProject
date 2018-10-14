@@ -13,7 +13,7 @@ def delete_absent_student(list_of_student):
         print("Please enter correct integer number of student")
         delete_absent_student(list_of_student)
 
-def delete(user_input, list_of_student):
+def delete(user_input, list_of_student, student_array=[]):
     if user_input == 'y':
         try:
             student = random.choice(list_of_student)
@@ -24,10 +24,3 @@ def delete(user_input, list_of_student):
                      "Run again if you want to ask them second time!")
     elif user_input == 'n':
         sys.exit("Lesson are finished! Good job!")
-
-
-def random_st_delete(list_of_student):
-    while True:
-        print('Choose a random student? y/n')
-        user_input = input()
-        delete(list_of_student,user_input)

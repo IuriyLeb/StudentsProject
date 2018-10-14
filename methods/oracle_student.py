@@ -1,9 +1,10 @@
 from methods.segments import count_student_weight
 from methods.randomizer import check_student_status
 from methods.delete_student import delete
+from methods.mark_student import delete_absent_student
 
 
-def oracle(path_to_file_of_student, name_method):
+def oracle(path_to_file_of_student, name_method, student_array = []):
     list_of_student= []
     choser = {"segments" : count_student_weight,
               "randomizer" : check_student_status,
@@ -13,14 +14,14 @@ def oracle(path_to_file_of_student, name_method):
             student_name = line.decode("utf-8").strip().split(" ",1)[1]
             list_of_student.append(student_name)
 
-    print('are all students here? Answer y/n')
+    print('Are all students here? Answer y/n')
     x = input()
     if x == 'n':
-        delete_absent_student(list_of_student)
+        list_of_student = delete_absent_student(list_of_student)
     while True:
         print('Choose a random student? y/n')
         user_input = input()
         try:
-            choser[name_method](user_input,list_of_student)
+            student_array = choser[name_method](user_input,list_of_student, student_array)
         except KeyError:
             print("Enter correct name of method \n See help -h, --help")
