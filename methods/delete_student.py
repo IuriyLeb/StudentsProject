@@ -1,6 +1,7 @@
 import random
 import sys
 
+
 def delete_absent_student(list_of_student):
     for i in range(len(list_of_student)):
         print(i+1, list_of_student[i])

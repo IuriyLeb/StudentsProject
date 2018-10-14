@@ -14,7 +14,6 @@ def oracle(path_to_file_of_student, name_method, student_array = []):
         for line in students_file:
             student_name = line.decode("utf-8").strip().split(" ",1)[1]
             list_of_student.append(student_name)
-
     print('Are all students here? Answer y/n')
     x = input()
     if x == 'n':

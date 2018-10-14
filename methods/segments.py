@@ -21,6 +21,7 @@ def shift_all_segment(ind_segment, weight=[]):
                                                        weight[ind][1])
         return weight
 
+
 def count_student_weight(user_input,list_of_student, weight=[]):
     initial_weight = 10
     flag = 0
