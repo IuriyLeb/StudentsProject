@@ -1,30 +1,22 @@
-from methods.segments import count_student_weight
-from methods.randomizer import check_student_status
-from methods.delete_student import delete
-from methods.mark_student import delete_absent_student
+from methods.method_1 import method_1
+from methods.utils.mark_student import mark_student
 import sys
 
 
-def oracle(path_to_file_of_student, name_method, student_array = []):
-    list_of_student= []
-    choser = {"segments" : count_student_weight,
-              "randomizer" : check_student_status,
-              "delete" : delete}
-    with open(path_to_file_of_student, "rb") as students_file:
+def oracle(path_to_file_of_student, name_method, student_array=None):
+    list_of_student = []
+    choicer = {"method_1": method_1}
+    with open(path_to_file_of_student, "r", encoding="utf-8") as students_file:
         for line in students_file:
-            student_name = line.decode("utf-8").strip().split(" ",1)[1]
+            student_name = line.strip().split(" ", 1)[1]
             list_of_student.append(student_name)
     print('Are all students here? Answer y/n')
-    x = input()
-    if x == 'n':
-        list_of_student = delete_absent_student(list_of_student)
+    if input() == 'n':
+        list_of_student = mark_student(list_of_student)
     while True:
-        print('Choose a random student? y/n')
+        print('Press enter for choosing or q for exit...')
         user_input = input()
-        if user_input == 'y':
-            try:
-                student_array = choser[name_method](user_input,list_of_student, student_array)
-            except KeyError:
-                print("Enter correct name of method \n See help -h, --help")
-        elif user_input == 'n':
+        if user_input == 'q':
             sys.exit("Lesson are finished! Good job!")
+        called_student, student_array = choicer[name_method](list_of_student, student_array)
+        print(called_student)
