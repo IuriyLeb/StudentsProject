@@ -1,25 +1,15 @@
 import random
+'''This module reduces the probability of choosing the same student twice in a row by tagging the called one. '''
 
 
-def random_student(list_of_students):
-    student_dict = {}
-    for elem in list_of_students:
-        student_dict[elem] = 0
-    # print('Do you want to make your choice?', '\n', 'Press y to do it, n to exit')
-    somestud = random.choice(list_of_students)
-    print(somestud)
-    student_dict[somestud] += 1
-    while True:
-        print('Proceed? (y/n)', end=' ')
-        choice = input()
-        if choice == 'n':
-            break
-        elif choice == 'y':
-            somestud = random.choice(list_of_students)
-            if student_dict[somestud] > 0:
-                somestud = random.choice(list_of_students)
-                student_dict[somestud] = 0
-            print(somestud)
-            student_dict[somestud] += 1
-        else:
-            print('Incorrect, try again')
+def choose_randomly(list_of_students: list, student_array=None):
+    if not student_array:
+        student_array = {}
+    for student in list_of_students:
+        student_array[student] = 0
+        random_student = random.choice(list_of_students)
+        if student_array[random_student]:
+            random_student = random.choice(list_of_students)
+            student_array[random_student] = 0
+            student_array[random_student] += 1
+        return random_student, student_array
