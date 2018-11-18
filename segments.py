@@ -10,8 +10,6 @@ def shift_one_segment(right_end, next_left_end, next_right_end):
 
 
 def shift_all_segment(ind_segment, weight=None):
-    if weight is None:
-        weight = []
     for ind in range(ind_segment, len(weight)):
         weight[ind][0], weight[ind][1] = shift_one_segment(weight[ind - 1][1], weight[ind][0],
                                                            weight[ind][1])
@@ -33,7 +31,7 @@ def count_student_weight(list_of_student, weight=None):
             return called_student, weight
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     student_array = None
     list_of_student = []
     path_to_file_of_student = os.path.join(".", "data_input", "list_of_students.txt")
