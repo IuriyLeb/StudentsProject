@@ -1,11 +1,12 @@
-from methods.method_1 import method_1
+from methods.randomizer import choose_randomly
+from methods.segments import count_student_weight
 from methods.utils.mark_student import mark_student
 import sys
 
 
 def oracle(path_to_file_of_student, name_method, student_array=None):
     list_of_student = []
-    choicer = {"method_1": method_1}
+    choicer = {'randomizer': choose_randomly, 'segments': count_student_weight}
     with open(path_to_file_of_student, "r", encoding="utf-8") as students_file:
         for line in students_file:
             student_name = line.strip().split(" ", 1)[1]
