@@ -28,7 +28,7 @@ from methods import oracle_student
 parser = argparse.ArgumentParser(description='Selection of random student for answer')
 parser.add_argument('-i', '--path_to_file_of_student', default=os.path.join('.', 'data_input', 'list_of_students.txt'),
                     help='set path_to_file_of_student (default: data_input dir in dir with scripts)')
-parser.add_argument('-n', '--name_method', action='store', required=True, choices=['randomizer', 'segments'],
+parser.add_argument('-n', '--name_method', action='store', required=True, choices=['randomizer', 'segments', 'delete_student'],
                     help='enter name of random student method: method_1')
 
 args = parser.parse_args()
