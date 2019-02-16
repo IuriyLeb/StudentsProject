@@ -22,3 +22,6 @@ def oracle(path_to_file_of_student, name_method, student_array=None):
             sys.exit("Lesson are finished! Good job!")
         called_student, student_array = choicer[name_method](list_of_student, student_array)
         print(called_student)
+        if len(list_of_student) == 0:
+            print('All students were asked. Time for the rest!')
+            break
