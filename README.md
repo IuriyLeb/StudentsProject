@@ -26,7 +26,7 @@ For install clone repository on your local machine; oracle.py is an entry point.
 * `randomizer` - runs the script with "randomizer" module
 * `delete` - runs the script with "delete" module
 
-####Optional arguments
+#### Optional arguments
 * `-i(optionally)` - path to file of students (default path is `./data_input/list_of_students.txt`)
 * `-h` - help page
 
