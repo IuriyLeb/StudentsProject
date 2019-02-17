@@ -12,4 +12,3 @@ def delete_random_student(list_of_student, student_array=None):
 
     else:
         sys.exit('All students were asked. Time for the rest!')
-
