@@ -19,5 +19,17 @@ answered on every step.
 
 For install clone repository on your local machine; oracle.py is an entry point.
 
+
+`oracle.py [-h] [-i path to file of students] -n name_of_method`
+
 ### Usage: 
-* **python oracle.py -m '1', '2' or '3'** 1:segments, 2:randomizer, 3:delete_student
+* **python oracle.py -m '1', '2' or '3'** 
+#### Methods
+* 1 -`segments` - runs the script with "segments" module
+* 2 -`randomizer` - runs the script with "randomizer" module
+* 3 -`delete` - runs the script with "delete" module
+
+#### Optional arguments
+* `-i(optionally)` - path to file of students (default path is `./data_input/list_of_students.txt`)
+* `-h` - help page
+
