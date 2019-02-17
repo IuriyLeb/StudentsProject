@@ -18,19 +18,20 @@ Methods:
         answered on every step.
 
 
-Example:
-        python oracle.py -m name_of_method
+Usage:
+        python oracle.py -m '1', '2' or '3' 1:segments, 2:randomizer, 3:delete_student
 """
 import argparse
 import os
-from methods import oracle_student
+from methods.utils.oracle_student import oracle
 
+choices = {'1': 'randomizer', '2': 'segments', '3': 'delete_student'}
 parser = argparse.ArgumentParser(description='Selection of random student for answer')
 parser.add_argument('-i', '--path_to_file_of_student', default=os.path.join('.', 'data_input', 'list_of_students.txt'),
                     help='set path_to_file_of_student (default: data_input dir in dir with scripts)')
-parser.add_argument('-n', '--name_method', action='store', required=True, choices=['randomizer', 'segments', 'delete_student'],
-                    help='enter name of random student method: method_1')
+parser.add_argument('-n', '--name_method', action='store', required=True, choices=['1', '2', '3'],
+                    help='enter number of random student method: 1:randomizer, 2:segments, 3:delete_student')
 
 args = parser.parse_args()
 if args.name_method:
-    oracle_student.oracle(args.path_to_file_of_student, args.name_method)
+    oracle(args.path_to_file_of_student, choices[args.name_method])

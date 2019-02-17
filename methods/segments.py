@@ -1,6 +1,6 @@
-import os
 import random
-import sys
+
+'''This module decrease the probability to select the same student twice in one session.'''
 
 
 def shift_one_segment(right_end, next_left_end, next_right_end):
@@ -30,21 +30,3 @@ def count_student_weight(list_of_student, weight=None):
             weight[ind][1] = weight[ind][1] - restrict_size
             weight = shift_all_segment(ind_called_student + 1, weight)
             return called_student, weight
-
-
-if __name__ == "__main__":
-    student_array = None
-    list_of_student = []
-    path_to_file_of_student = os.path.join(".", "data_input", "list_of_students.txt")
-    with open(path_to_file_of_student, encoding="utf-8") as students_file:
-        for line in students_file:
-            student_name = line.strip().split(" ", 1)[1]
-            list_of_student.append(student_name)
-    while True:
-        print('Press enter for choosing or q for exit...')
-        user_input = input()
-        if user_input == 'q':
-            sys.exit("Lesson are finished! Good job!")
-        called_student, student_array = count_student_weight(list_of_student, student_array)
-        print(called_student)
-

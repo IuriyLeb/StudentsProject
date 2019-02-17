@@ -20,7 +20,4 @@ answered on every step.
 For install clone repository on your local machine; oracle.py is an entry point.
 
 ### Usage: 
-* `python oracle.py -m segments` - runs the script with "segments" module
-* `python oracle.py -m randomizer` - runs the script with "randomizer" module
-* `python oracle.py -m delete` - runs the script with "delete" module
-* `oracle.py -h` - help page.
+* **python oracle.py -m '1', '2' or '3'** 1:segments, 2:randomizer, 3:delete_student
