@@ -23,7 +23,7 @@ For install clone repository on your local machine; oracle.py is an entry point.
 `oracle.py [-h] [-i path to file of students] -n name_of_method`
 
 ### Usage: 
-* **python oracle.py -m '1', '2' or '3'** 
+* **python oracle.py -n '1', '2' or '3'** 
 #### Methods
 * 1 -`segments` - runs the script with "segments" module
 * 2 -`randomizer` - runs the script with "randomizer" module

@@ -19,7 +19,7 @@ Methods:
 
 
 Usage:
-        python oracle.py -m '1', '2' or '3' 1:segments, 2:randomizer, 3:delete_student
+        python oracle.py -n '1', '2' or '3' 1:segments, 2:randomizer, 3:delete_student
 """
 import argparse
 import os
